@@ -1,0 +1,486 @@
+@charset "Shift_JIS";
+/* ****************************** */
+/* リセット */
+/* ****************************** */
+*{
+	margin:0;
+	padding:0;
+	font:normal normal normal 100%/1.8 Verdana,Tahoma,Helvetica,sans-serif;
+	text-decoration:none;
+	}
+/* ****************************** */
+/* body */
+/* ****************************** */
+/* 文字色（333333）と背景色（fefefe） */
+body
+	{
+	color:#333333;
+    font-size:84%;
+	background:#333333;
+	height:100%;
+	}
+/* ****************************** */
+/* アンカー */
+/* ****************************** */
+a
+	{
+	text-decoration:none;
+	}
+a:link
+	{
+	color:#90a690;
+	}
+a:visited
+	{
+	color:#c7d9c7;
+	}
+a:hover,
+a:active
+	{
+	color:#90a690;
+	}
+/* 記事内のみ適用 */
+.text a
+	{
+	text-decoration:underline;
+	}
+.text a:hover,
+.text a:active
+	{
+	background:#eeeeee;
+	}
+/* ****************************** */
+/* 枠 */
+/* ****************************** */
+#PAGETOP
+	{
+    background:#fefefe;
+	}
+/* ****************************** */
+/* ヘッダー */
+/* ****************************** */
+#HEADER
+	{
+	padding:1.5em 25px;
+	background:#333333;
+	}
+/* サイト名 */
+h1
+	{
+	text-transform:uppercase;
+    color:#fefefe;
+    font-size:200%;
+	}
+/* パンくずリスト */
+ul#PAN
+	{
+	list-style:none;
+	text-align:right;
+    color:#fefefe;
+	}
+ul#PAN li
+	{
+	display:inline;
+	}
+ul#PAN a
+	{
+	padding:0 0.7em 0 0;
+	background:transparent url("./image/pan.gif") no-repeat 100% 50%;
+	}
+/* ****************************** */
+/* メニュー */
+/* ****************************** */
+#MENU{
+	background:#90a690;
+}
+#MENU h2{
+	display:none;
+}
+/* メニューリスト */
+#MENU ul
+	{
+	padding:0.25em 1.5em;
+	border-top:double 3px #333333;
+	border-bottom:double 3px #fafafa;
+	}
+#MENU ul li
+	{
+	list-style:none;
+	display:inline;
+    margin:0 6px 0 0;
+	padding:0 10px 0 0;
+    border-right:1px solid #fafafa;
+	}
+* html #MENU li
+	{
+	margin:0 10px 0 0;
+	padding:0 5px 0 0;
+	}
+*:first-child+html #MENU li
+	{
+	margin:0 10px 0 0;
+	padding:0 5px 0 0;
+	}
+#MENU ul li a
+	{
+	color:#333333;
+	}
+#MENU li a:hover,
+#MENU li a:active
+	{
+	color:#fafafa;
+	}
+/* ****************************** */
+/* 記事部分 */
+/* ****************************** */
+#KIZI{
+	margin:0.25em 0 0.5em 0;
+	background:url("./image/kizi.gif") repeat-x bottom;
+}
+/* 見出し2 */
+h2{
+	font:175%/1.1 "Century Gothic",Futura,Helvetica,Arial,sans-serif;
+	color:#cccccc;
+	text-align:right;
+	background:url("./image/h2.gif");
+	padding:0 25px;
+	margin:0.25em 0;
+}
+/* 本文 */
+.text{
+	margin:0.5em 25px 0.5em 100px;
+	padding:0 0 3em 20px;
+}
+/* 見出し3 */
+h3{
+	color:#483d8b;
+	font-size:150%;
+	margin:0.5em 0 0.5em -120px;
+	padding:0 0 0 110px;
+	background:#fefefe url("./image/h3.gif") repeat-y 0;
+}
+.text p
+	{
+	padding:1em 0;
+	}
+/* ナビゲーション */
+#KIZI ul.modori
+	{
+	margin:0.5em 0;
+	padding:1.5em 0;
+	text-align:right;
+	}
+#KIZI ul.modori li
+	{
+	list-style:none;
+	}
+/* ****************************** */
+/* フッター */
+/* ****************************** */
+#FOOTER
+	{
+	text-align:right;
+	padding:0 0 1em 0;
+	background:#333333;
+	}
+#FOOTER h2
+	{
+	display:none;
+	}
+#FOOTER ul
+	{
+	background:#90a690;
+	padding:0.25em 1em;
+	border-top:double 3px #fefefe;
+	border-bottom:double 3px #333333;
+	}
+#FOOTER address
+	{
+	display:inline;
+	}
+#FOOTER li
+	{
+	list-style:none;
+	display:inline;
+	margin:0 6px 0 0;
+	padding:0 10px 0 0;
+	border-right:1px solid #fefefe;
+	}
+#FOOTER a
+	{
+	color:#333333;
+	}
+#FOOTER a:hover,
+#FOOTER a:active
+	{
+	color:#fefefe;
+	}
+/* ****************************** */
+/* h要素 */
+/* ****************************** */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	{
+	line-height:1.2;
+	}
+h4
+	{
+	border-bottom:1px dotted #708090;
+	font-size:125%;
+	margin:0.5em 0;
+	padding:0 10px;
+	color:#708090;
+	}
+h5
+	{
+	font-size:110%;
+	margin:0.5em 0;
+	padding:0.1em 15px;
+	color:#ba55d3;
+	background:url("./image/h5.gif") no-repeat 0 50%;
+	}
+h6
+	{
+	margin:0.5em 0;
+	padding:0.1em 15px;
+	color:#6666cc;
+	background:url("./image/h6.gif") no-repeat 0 50%;
+	}
+/* ******************** */
+/* その他（インライン） */
+/* ******************** */
+/* 強調 */
+em
+	{
+	font-weight:700;
+	}
+/* より強調 */
+strong
+	{
+	font-weight:700;
+	background:url("./image/strong.gif");
+	padding:1px;
+	}
+/* 定義語 */
+dfn
+	{
+	background:url("./image/abbr-dfn.gif") repeat-x bottom;
+	}
+/* 略語 */
+abbr
+	{
+	border:none;
+	background:url("./image/abbr-dfn.gif") repeat-x bottom;
+	cursor:help;
+	}
+/* 追加 */
+ins
+	{
+	color:#333333;
+	}
+/* 削除 */
+del
+	{
+	text-decoration:line-through;
+	color:#999999;
+	}
+/* ルビ（xhtmlで使用可） */
+ruby rt,
+ruby rp
+	{
+	font-size:62%;
+	}
+/* 上つき文字 */
+sup
+	{
+	font-size:84%;
+	vertical-align:super;
+	}
+/* 下つき文字 */
+sub
+	{
+	font-size:84%;
+	vertical-align:sub;
+	}
+/* プログラムの出力例 */
+samp
+	{
+	font-family:monospace;
+	}
+/* キーボードから入力する内容や押すべきキー */
+kbd
+	{
+	font-family:monospace;
+	}
+/* 変数 */
+var
+	{
+	font-family:monospace;
+	}
+/* 引用「『』」 */
+q
+	{
+	quotes:"\300c" "\300d" "\300e" "\300f";
+    background:#eeeeee;
+	}
+q:before
+	{
+	content:open-quote;
+	}
+q:after
+	{
+	content:close-quote;
+	}
+/* 引用元 */
+cite
+	{
+	margin:0;
+	padding:0;
+	}
+/* 画像 */
+img
+	{
+	margin:1px;
+	padding:0;
+	}
+/* リンク画像に線を出さない */
+a img
+	{
+	border:none;
+	}
+/* ******************** */
+/* その他（ブロック） */
+/* ******************** */
+/* 水平線 */
+hr
+	{
+	display:none;
+	}
+/* 引用 */
+blockquote
+	{
+	margin:2em 1em 0 1em;
+	padding:0.75em;
+	border-left:5px solid #eeeeee;
+    border-bottom:1px solid #fefefe;
+	background:#ffffff;
+	cursor:help;
+	}
+#KIZI .text blockquote *
+	{
+	background:url("");
+	border:none;
+	}
+#KIZI .text blockquote p
+	{
+	margin:0;
+	padding:0;
+	}
+/* 引用・出典 */
+p.source
+	{
+	margin:0 1em 2em 1em;
+	padding:0.5em ;
+	text-align:right;
+	}
+/* 引用元 */
+p.cite
+	{
+	margin:0;
+	padding:0;
+	}
+/* アドレス */
+address
+	{
+	display:inline;
+	}
+/* 同不順リスト */
+#KIZI ul
+	{
+	margin:0.25em 0 0.25em 2em;
+	padding:1em 0;
+	}
+#KIZI ul li
+	{
+	list-style-type:disc;
+	}
+/* リストの中のリスト */
+#KIZI ul li ul
+	{
+	margin:-1em 0;
+	}
+#KIZI li li
+	{
+	list-style-type:circle;
+	}
+/* 番号つきリスト */
+#KIZI ol
+	{
+	margin:0.25em 0 0.25em 2em;
+	padding:1em 0;
+	}
+/* 定義リスト */
+#KIZI  dt:first-letter {
+/* Hidden from Mac IE \*/
+color:#90a690;
+/**/
+}
+#KIZI  dd{
+margin:0 0 0 0.5em;
+padding:0 0 0 1em;
+border-left:1px solid #90a690;
+border-bottom:1px solid #fefefe;
+}
+* html #KIZI  dd{
+margin-left:0; /* WinIE */
+}
+/* 整形済みテキスト */
+pre
+	{
+	border:1px solid #eeeeee;
+	margin:1em;
+	padding:0.25em;
+	font-family:monospace;
+	letter-spacing:normal;
+	overflow:scroll;
+	width:auto;
+	line-height:1.4;
+	background:#ffffff;
+	}
+/* 整形済みテキストforIE6以下 */
+* html pre
+	{
+	width:90%;
+	overflow:scroll;
+	font-family:monospace;
+	}
+/* コード */
+code
+	{
+	font-family:monospace;
+	border:1px dotted #eeeeee;
+	background:#ffffff;
+    padding:1px;
+	}
+/* テキストエリア */
+input,
+textarea,
+select
+	{
+	line-height:1.4;
+	padding:0.1em;
+	color:#333333;
+	border:1px solid #333333;
+	line-height:1.2;
+	background:url("./image/form.gif");
+	}
+/* ボタン */
+input#BUTTON
+	{
+	color:#ffffff;
+	background:#333333;
+	}
