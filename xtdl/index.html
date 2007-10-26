@@ -31,14 +31,35 @@
 </div>
 <hr>
 <div id="KIZI">
-<h2>ABOUT X-TDL</h2>
+<h2>ABOUT&nbsp;XHTML based Teaching-material Description
+Language</h2>
 <div class="text">
-<h3>教材記述言語X-TDL</h3>ここでは, 教材記述言語X-TDL で記述された学習コンテンツの内容モデルについて述べる. X-TDL の特徴として以下のようなものが挙げられる.<br><ul><li>教材資源の論理構造を木としてXMLで記述.</li><li>木構造の各部分木は内容上の上下関係や構成上の意味的なまとまりを表す単位.</li><li>学習者に提示される内容は, XHTML をベースにした記述</li><li>木構造の任意の部分木を新たな教材として再利用可能<br></li></ul>
-X-TDL では, 章や節などの学習教材の階層構造とテキストや画像, 音声等のマルチメディアコンテンツをXML で記述する. 章節のような階層構造と, 説明文や用例といった構成上の要素を木構造によって表す. 図1 にX-TDL での教材構造の概念図を示す.<br><br><div style="text-align: center;"><img style="width: 550px; height: 293px;" alt="XTDL教材構造の概念図" src="../images/xtdl-struct.jpg"><br></div><div style="text-align: center;"><h4>図1: X-TDL 教材構造の概念図</h4></div><br>　
-一般的な書籍での章節や単元に対応するようなまとまりを構造記述要素&lt;section&gt;で表現する. &lt;section&gt;
+<h3>教材記述言語X-TDL</h3>
+ここでは, 教材記述言語X-TDL で記述された学習コンテンツの内容モデルについて述べる. X-TDL
+の特徴として以下のようなものが挙げられる.<br>
+<ul>
+<li>教材資源の論理構造を木としてXMLで記述.</li>
+<li>木構造の各部分木は内容上の上下関係や構成上の意味的なまとまりを表す単位.</li>
+<li>学習者に提示される内容は, XHTML をベースにした記述</li>
+<li>木構造の任意の部分木を新たな教材として再利用可能<br>
+</li>
+</ul>
+X-TDL では, 章や節などの学習教材の階層構造とテキストや画像, 音声等のマルチメディアコンテンツをXML で記述する.
+章節のような階層構造と, 説明文や用例といった構成上の要素を木構造によって表す. 図1 にX-TDL での教材構造の概念図を示す.<br>
+<br>
+<div style="text-align: center;"><img style="width: 550px; height: 293px;" alt="XTDL教材構造の概念図" src="../images/xtdl-struct.jpg"><br>
+</div>
+<div style="text-align: center;">
+<h4>図1: X-TDL 教材構造の概念図</h4>
+</div>
+<br>
+　
+一般的な書籍での章節や単元に対応するようなまとまりを構造記述要素&lt;section&gt;で表現する.
+&lt;section&gt;
 を入れ子にすることにより, 教材リソースの階層構造を記述する. &lt;section&gt; の子要素として説明文, 用例,
 図説といった学習上意味のあるまとまりを意味記述要素で表し, それぞれ&lt;explanation&gt;,
-&lt;example&gt;,&lt;illustration&gt;等の要素で記述する. 意味記述要素もまた入れ子にすることができ,
+&lt;example&gt;,&lt;illustration&gt;等の要素で記述する.
+意味記述要素もまた入れ子にすることができ,
 用例中の説明文と言った意味的な階層構造を記述可能である. 更に, 意味記述要素の子要素には, 実際の学習内容をXHTML の要素で記述する.
 その他にテストや演習問題を表す問題記述要素として, &lt;examination&gt;,
 &lt;exercise&gt; 要素がある. X-TDL で用意されている記述可能な要素を表1
@@ -46,13 +67,42 @@ X-TDL では, 章や節などの学習教材の階層構造とテキストや画像, 音声等のマルチメディ
 などのタグで包含することで, 章節などの単位で区切ることができる. 意味記述要素の子要素には,
 実際に学習者に提示される内容をXHTML2.0[15] に従った記法で記述する. 具体的には, XHTML のモジュール機能を利用して,
 段落や見出し, リストや表等の記述を可能とすると共に, 画像や音声, Java アプレット, Flash
-等のリッチコンテンツを参照することができる.<br><br>要素タイプ要素内容<br>
-構造記述要素section 意味記述要素<br>
-explanation, example,illustration, 意味記述要素または<br>
-意味記述要素definition ,program, algorithm, 内容を記述するための<br>
-proof, simulation XHTML2.0 の要素<br>
-テスト記述要素examination, exercise 問題や解答など<br>
-表1: X-TDL 内容モデル<br><br>例１ にX-TDL の記述例を示す. XML の要素の入れ子によって教材の論理的な木構造を記述しており, 各要素名が構成要素上の意味を表している.<br><br>例1 X-TDL 教材の記述例<br>
+等のリッチコンテンツを参照することができる.<br><h4 style="text-align: center;">表1: X-TDL 内容モデル</h4>
+
+<table style="width: 501px; height: 277px; text-align: left; margin-left: auto; margin-right: auto;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center; font-weight: bold;">要素
+タイプ</td>
+<td style="text-align: left; font-weight: bold;">要素</td>
+<td style="text-align: center; font-weight: bold;">内容</td>
+</tr>
+<tr>
+<td style="text-align: center;">構造記述要素</td>
+<td style="text-align: left;">section</td>
+<td style="text-align: center;">意味記述要素</td>
+</tr>
+<tr>
+<td style="text-align: center;">意味記述要素</td>
+<td style="text-align: left;">explanation,
+example,illustration,<br>
+definition ,program, algorithm,<br>
+proof, simulation</td>
+<td style="text-align: center;">意味記述要素または<br>
+内容を記述するための<br>
+XHTML2.0 の要素</td>
+</tr>
+<tr>
+<td style="text-align: center;">テスト記述要素&nbsp;
+&nbsp;&nbsp;</td>
+<td style="text-align: left;">examination, exercise </td>
+<td style="text-align: center;">問題や解答など</td>
+</tr>
+</tbody>
+</table>
+<br>例１ にX-TDL の記述例を示す. XML の要素の入れ子によって教材の論理的な木構造を記述しており,
+各要素名が構成要素上の意味を表している.<br>
+<blockquote>
 1 &lt;?xml version="1.0" encoding="UTF-8" ?&gt;<br>
 2 &lt;xtdl&gt;<br>
 3 &lt;section title="データベース" id="sec1"&gt;<br>
@@ -74,9 +124,19 @@ proof, simulation XHTML2.0 の要素<br>
 19 &lt;examination
 title="章末問題1"&gt;テストを記述&lt;/examination&gt;<br>
 20 &lt;/section&gt;<br>
-21 &lt;/xtdl&gt;<br><br>また, 教材木構造中の任意のノードを根とする部分木を教材の部品として再利用可能である. &lt;section&gt; や&lt;example&gt; のような教材ノードには,
-属性として&lt;xtdl&gt; を根とする教材リソース中で一意な識別子が付与されている. また,属性値としてタイトルやメタデータのURI を持つことができる.&nbsp;
-<p><a href="xtdl.html">X-TDLの仕様書</a></p></div></div><div id="FOOTER"><ul><li id="FOOTER01"><a href="#PAGETOP">TOP</a></li>
+21 &lt;/xtdl&gt;<br>
+</blockquote>
+<h4 style="text-align: center;">
+例1 X-TDL 教材の記述例</h4>また, 教材木構造中の任意のノードを根とする部分木を教材の部品として再利用可能である. &lt;section&gt;
+や&lt;example&gt; のような教材ノードには,
+属性として&lt;xtdl&gt; を根とする教材リソース中で一意な識別子が付与されている.
+また,属性値としてタイトルやメタデータのURI を持つことができる.&nbsp;
+<p><a href="xtdl.html">X-TDLの仕様書</a></p>
+</div>
+</div>
+<div id="FOOTER">
+<ul>
+<li id="FOOTER01"><a href="#PAGETOP">TOP</a></li>
 <li id="FOOTER03">
 <address><a href="http://css.poromeria.com/">CSS
 Designplate</a></address>
