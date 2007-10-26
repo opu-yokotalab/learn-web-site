@@ -3,7 +3,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="shortcut icon" href="./banner/favicon.ico">
-<link rel="stylesheet" href="../csstemplate/style.css" type="text/css"><title>e-Learning Project</title></head>
+<link rel="stylesheet" href="../csstemplate/style.css" type="text/css"><title>e-Learning Project</title>
+
+</head>
 <body id="INDEX">
 <div id="PAGETOP">
 <div id="HEADER">
@@ -17,10 +19,12 @@
 <h2>menu</h2>
 <ul>
 <li id="MENU01" class="menu-on"><a href="../index.html">index</a></li>
-<li id="MENU02"><a href="../about.html">eラーニン
+<li id="MENU02"><a href="../about.html">eラーニ
+ン
 グについて</a></li>
 <li id="MENU03"><a href="../product.html">Products</a></li>
-<li id="MENU04"><a href="../research.html">学外
+<li id="MENU04"><a href="../research.html">学
+外
 発表等</a></li>
 <li id="MENU05"><a href="../link.html">Links</a></li>
 </ul>
@@ -29,18 +33,50 @@
 <div id="KIZI">
 <h2>ABOUT X-TDL</h2>
 <div class="text">
-<h3>教材記述言語X-TDL</h3>
-<p><a href="xtdl.html">X-TDLの仕様書</a></p><p>
-このサイトは岡山県立大学知能メディア工学研究室のeラーニングプロジェクトを紹介するページです。<br>
-このサイトは現M2の小西(<a href="mailto:konishi@c.oka-pu.ac.jp">konishi@c.oka-pu.ac.jp</a>)
-が管理しています。<br>
-質問、要望等は管理者までお願いします。</p>
-</div>
-<hr>
-</div>
-<div id="FOOTER">
-<ul>
-<li id="FOOTER01"><a href="#PAGETOP">TOP</a></li>
+<h3>教材記述言語X-TDL</h3>ここでは, 教材記述言語X-TDL で記述された学習コンテンツの内容モデルについて述べる. X-TDL の特徴として以下のようなものが挙げられる.<br><ul><li>教材資源の論理構造を木としてXMLで記述.</li><li>木構造の各部分木は内容上の上下関係や構成上の意味的なまとまりを表す単位.</li><li>学習者に提示される内容は, XHTML をベースにした記述</li><li>木構造の任意の部分木を新たな教材として再利用可能<br></li></ul>
+X-TDL では, 章や節などの学習教材の階層構造とテキストや画像, 音声等のマルチメディアコンテンツをXML で記述する. 章節のような階層構造と, 説明文や用例といった構成上の要素を木構造によって表す. 図1 にX-TDL での教材構造の概念図を示す.<br><br><div style="text-align: center;"><img style="width: 550px; height: 293px;" alt="XTDL教材構造の概念図" src="../images/xtdl-struct.jpg"><br></div><div style="text-align: center;"><h4>図1: X-TDL 教材構造の概念図</h4></div><br>　
+一般的な書籍での章節や単元に対応するようなまとまりを構造記述要素&lt;section&gt;で表現する. &lt;section&gt;
+を入れ子にすることにより, 教材リソースの階層構造を記述する. &lt;section&gt; の子要素として説明文, 用例,
+図説といった学習上意味のあるまとまりを意味記述要素で表し, それぞれ&lt;explanation&gt;,
+&lt;example&gt;,&lt;illustration&gt;等の要素で記述する. 意味記述要素もまた入れ子にすることができ,
+用例中の説明文と言った意味的な階層構造を記述可能である. 更に, 意味記述要素の子要素には, 実際の学習内容をXHTML の要素で記述する.
+その他にテストや演習問題を表す問題記述要素として, &lt;examination&gt;,
+&lt;exercise&gt; 要素がある. X-TDL で用意されている記述可能な要素を表1
+に示す.このとき教材の粒度や階層の深さは記述レベルで制限せず, 教材作成者は任意の範囲を&lt;section&gt;
+などのタグで包含することで, 章節などの単位で区切ることができる. 意味記述要素の子要素には,
+実際に学習者に提示される内容をXHTML2.0[15] に従った記法で記述する. 具体的には, XHTML のモジュール機能を利用して,
+段落や見出し, リストや表等の記述を可能とすると共に, 画像や音声, Java アプレット, Flash
+等のリッチコンテンツを参照することができる.<br><br>要素タイプ要素内容<br>
+構造記述要素section 意味記述要素<br>
+explanation, example,illustration, 意味記述要素または<br>
+意味記述要素definition ,program, algorithm, 内容を記述するための<br>
+proof, simulation XHTML2.0 の要素<br>
+テスト記述要素examination, exercise 問題や解答など<br>
+表1: X-TDL 内容モデル<br><br>例１ にX-TDL の記述例を示す. XML の要素の入れ子によって教材の論理的な木構造を記述しており, 各要素名が構成要素上の意味を表している.<br><br>例1 X-TDL 教材の記述例<br>
+1 &lt;?xml version="1.0" encoding="UTF-8" ?&gt;<br>
+2 &lt;xtdl&gt;<br>
+3 &lt;section title="データベース" id="sec1"&gt;<br>
+4 &lt;explanation title="はじめに" id="expl1"&gt;<br>
+5 &lt;p&gt;説明文を記述します。&lt;/p&gt;<br>
+6 &lt;/explanation&gt;<br>
+7 &lt;section title="E-R モデル" id="sec2"&gt;<br>
+8 &lt;example title="例1" id="exmp1"&gt;<br>
+9 &lt;p&gt;用例を記述します&lt;/p&gt;<br>
+10 &lt;/example&gt;<br>
+11 &lt;exercise id="exer1"&gt;練習問題を記述&lt;/exercise&gt;<br>
+12 &lt;/section&gt;<br>
+13 &lt;section title="1.2 節" id="sec1.2"&gt;<br>
+14 &lt;illustration title="図1" id="i1l.2"&gt;<br>
+15 &lt;p&gt;図説を記述&lt;/p&gt;<br>
+16 &lt;img src="sample1.jpg"/&gt;<br>
+17 &lt;/illustration&gt;<br>
+18 &lt;/section&gt;<br>
+19 &lt;examination
+title="章末問題1"&gt;テストを記述&lt;/examination&gt;<br>
+20 &lt;/section&gt;<br>
+21 &lt;/xtdl&gt;<br><br>また, 教材木構造中の任意のノードを根とする部分木を教材の部品として再利用可能である. &lt;section&gt; や&lt;example&gt; のような教材ノードには,
+属性として&lt;xtdl&gt; を根とする教材リソース中で一意な識別子が付与されている. また,属性値としてタイトルやメタデータのURI を持つことができる.&nbsp;
+<p><a href="xtdl.html">X-TDLの仕様書</a></p></div></div><div id="FOOTER"><ul><li id="FOOTER01"><a href="#PAGETOP">TOP</a></li>
 <li id="FOOTER03">
 <address><a href="http://css.poromeria.com/">CSS
 Designplate</a></address>
