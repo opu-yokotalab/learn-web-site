@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="euc-jp"?>
+<!-- powered by SmartDoc -->
+<doc>
+<head>
+<title>X-TDL仕様書</title>
+<subtitle>v1.0</subtitle>
+<org>知能メディア工学研究室　教育グループ</org>
+<date>最終更新日：2007-10-29</date>
+</head>
+<body>
+
+<chapter title="この文書について">
+<section title="概要">
+教材記述言語X-TDL(XHTML based Teaching material Description Language) の仕様書の草案です。</section>
+<section title="この文書の目的">
+X-TDLの記述を定めることです。この文書に書かれているものがX-TDLの正式な記述とします。
+X-TDLで教材を記述する場合や、X-TDLの処理系を作成する場合はこの文書に従ってください。
+なお、今後研究を進めるに従って、この文書の内容は変化する恐れがあります。
+</section>
+</chapter>
+<!-- 要素の解説 ここから -->
+<chapter title="要素の解説">
+
+<!-- 要素の解説 / ルート要素 ここから -->
+<section title="ルート要素">
+<subsection title="xtdl要素">
+
+ルート要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>無し</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>section</li>
+</ul>
+</subsubsection>
+</subsection>
+</section>
+<!-- 要素の解説 / ルート要素 ここまで -->
+
+<!-- 要素の解説 / 構造を表す要素 ここから -->
+<section title="構造を表す要素">
+<subsection title="section要素">
+
+章や節を表す要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 章の題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>section</li>
+<li>example</li>
+<li>definition</li>
+<li>explanation</li>
+<li>examination</li>
+<li>exercise</li>
+<li>illustration</li>
+<li>program</li>
+<li>algorithm</li>
+<li>proof</li>
+<li>simulation</li>
+<li>XHTMLの要素</li>
+</ul>
+</subsubsection>
+</subsection>
+<subsection title="example要素">
+
+例を表す要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul>
+</subsubsection>
+</subsection>
+
+<subsection title="definition要素">
+
+定義を表す要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="explanation要素">
+
+説明を表す要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="examination要素">
+
+テストを表す要素です。テスト機構内部の問題DBに対して，出題する問題の問合せを記述します。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>selection_ordering</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="exercise要素">
+
+演習問題を表す要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="illustration要素">
+
+図を表す要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="program要素">
+
+ソースコードを挿入するための要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title=" algorithm要素">
+
+アルゴリズムを記述するための要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="proof要素">
+
+証明を記述するための要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+<subsection title="simulation要素">
+
+シミュレーションを記述するための要素です。
+
+<subsubsection title="属性">
+<ul>
+<li>title : 題名</li>
+<li>id : シーケンシングに用いる識別子</li>
+</ul>
+</subsubsection>
+<subsubsection title="子要素">
+<ul>
+<li>XHTMLの要素</li>
+</ul></subsubsection>
+</subsection>
+
+</section>
+<!-- 要素の解説 / 構造を表す要素 ここまで -->
+
+<!-- 要素の解説 / テスト問題の呼び出し記述 -->
+<section title="出題する問題の問合せを記述する要素">
+	<subsection title="selection_ordering要素">
+		テストにおいて，出題する問題の問合せを記述するための要素です。
+		<subsubsection title="属性">
+			<ul>
+				<li>id :問題群の識別子</li>
+				<li>mark :グループへの配点</li>
+			</ul>
+		</subsubsection>
+		<subsubsection title="子要素">
+			<ul>
+				<li>selection_id</li>
+				<li>selection_type</li>
+				<li>selection_number</li>
+				<li>selection_point</li>
+				<li>ordering</li>
+			</ul>
+		</subsubsection>
+	</subsection>
+	<subsection title="selection_id要素">
+		問題候補の指定のための要素。値として問題候補の識別子、または｢random｣を与える。
+		<subsubsection title="属性">
+			<ul>
+				<li>無し</li>
+			</ul>
+		</subsubsection>
+		<subsubsection title="子要素">
+			<ul>
+				<li>無し</li>
+			</ul>			
+		</subsubsection>
+		<subsubsection title="要素値">
+			<ul>
+				<li>問題候補の識別子(複数指定の場合はカンマで区切る)</li>
+				<li>random</li>
+			</ul>
+		</subsubsection>
+	</subsection>
+	<subsection title="selection_type要素">
+		問題候補の形式を指定するための要素です。
+		<subsubsection title="属性">
+			<ul>
+				<li>無し</li>
+			</ul>
+		</subsubsection>
+		<subsubsection title="子要素">
+			<ul>
+				<li>無し</li>
+			</ul>			
+		</subsubsection>
+		<subsubsection title="要素値">
+			<ul>
+				<li>問題候補の形式ですか？</li>
+			</ul>
+		</subsubsection>
+	</subsection>
+	<subsection title="selection_number要素">
+		出題する問題数を指定する。
+		<subsubsection title="属性">
+			<ul>
+				<li>無し</li>
+			</ul>
+		</subsubsection>
+		<subsubsection title="子要素">
+			<ul>
+				<li>無し</li>
+			</ul>			
+		</subsubsection>
+		<subsubsection title="要素値">
+			<ul>
+				<li>出題問題数</li>
+			</ul>
+		</subsubsection>
+	</subsection>
+	<subsection title="selection_point要素">
+		問題候補の持つ点数を指定する。指定した点数以上，以下の指定を行う。
+		<subsubsection title="属性">
+			<ul>
+				<li>type　:｢over｣ or ｢under｣のいずれか</li>
+			</ul>
+		</subsubsection>
+		<subsubsection title="子要素">
+			<ul>
+				<li>無し</li>
+			</ul>			
+		</subsubsection>
+		<subsubsection title="要素値">
+			<ul>
+				<li>点数</li>
+			</ul>
+		</subsubsection>
+	</subsection>
+	<subsection title="ordering要素">
+		出題の順序を指定する要素。順番，またはランダムのいずれかを指定する。
+		<subsubsection title="属性">
+			<ul>
+				<li>type :｢sequential｣ or ｢random｣ のいずれか</li>
+			</ul>
+		</subsubsection>
+		<subsubsection title="子要素">
+			<ul>
+				<li>無し</li>
+			</ul>			
+		</subsubsection>
+	</subsection>
+</section>
+<!-- 要素の解説 / テスト問題の呼び出し記述 ここまで -->
+
+</chapter>
+<!-- 要素の解説 ここまで -->
+
+
+<!--
+<chapter title="スキーマ">
+<program src="./schema/xtdl-0_6.rng" title="X-TDLのスキーマ"/>
+</chapter>
+-->
+</body>
+</doc>

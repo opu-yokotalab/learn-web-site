@@ -368,11 +368,11 @@ blockquote
 	border-left:5px solid #eeeeee;
     border-bottom:1px solid #fefefe;
 	background:#ffffff;
-	cursor:help;
+	background:url("./image/blockquote.gif");
 	}
 #KIZI .text blockquote *
 	{
-	background:url("");
+	background:url("./image/blockquote.gif");
 	border:none;
 	}
 #KIZI .text blockquote p

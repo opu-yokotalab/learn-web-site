@@ -2,20 +2,19 @@
 	"http://www.w3.org/TR/REC-html401/loose.dtd">
 <html>
 <head>
-<META http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<META http-equiv="Content-Style-Type" content="text/css">
-<META http-equiv="Content-Script-Type" content="text/javascript">
-<META name="generator" content="SmartDoc 1.0">
-<META NAME="author" CONTENT="庄司成臣">
-<META NAME="date" CONTENT="2005-12-26">
-<title>X-TDL仕様書(下書き)</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="generator" content="SmartDoc 1.1">
+<meta name="date" content="最終更新日：2007-10-29">
+<title>X-TDL仕様書</title>
 <style type="text/css">
 <!--
 /*
     article.css
 
     since   : Nov. 21, 1998
-    version : Jan. 29, 2002
+    version : Aug. 21, 2003
     author  : ASAMI, Tomoharu (asami@XMLSmartDoc.org)
 */
 
@@ -115,6 +114,10 @@ div.table {
 }
 
 table.data {
+  border-collapse: separate;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10pt;
   margin-bottom: 10pt;
   background-color: green;
@@ -141,6 +144,9 @@ table.data td.key {
 
 
 table.menu {
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10pt;
   margin-bottom: 10pt;
   text-align: center;
@@ -180,6 +186,9 @@ table.menu td.key A:visited {
 }
 
 table.navigator {
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table.navigator td {
@@ -188,9 +197,14 @@ table.navigator td {
 }
 
 table.languages {
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0pt;
   margin-top: 0pt;
   font-size: x-small;
+  position: absolute;
+  right: 0pt;
 }
 
 table.languages td.current {
@@ -205,7 +219,7 @@ p {
   text-indent: 1em;
 }
 
-p ja {
+p.ja {
   margin: 0pt;
   text-indent: 1em;
 }
@@ -222,6 +236,14 @@ p.first_ja {
 
 div.title {
   text-align: center;
+}
+
+span.title {
+  font-size: larger;
+}
+
+span.subtitle {
+  font-size: smaller;
 }
 
 div.toc {
@@ -395,6 +417,22 @@ pre.program span.quote {
   font-style: normal;
 }
 
+
+pre.program span.class {
+  color: darkcyan;
+  font-style: normal;
+}
+
+pre.program span.constant {
+  color: blueviolet;
+  font-style: normal;
+}
+
+pre.program span.variable {
+  color: DarkGoldenrod;
+  font-style: normal;
+}
+
 var {
   color: green;
   font-style: italic;
@@ -463,8 +501,8 @@ td.equationNumber {
  * HTML4JavaScript.js
  *
  * @since   Nov. 17, 1998
- * @version Oct. 22, 2001
- * @author  ASAMI, Tomoharu (asami@zeomtech.com)
+ * @version Feb. 18, 2002
+ * @author  ASAMI, Tomoharu (asami@XMLSmartDoc.org)
  */
 var backupColor=null;
 var backupBGColor=null;
@@ -621,17 +659,17 @@ function isMsie4orGreater() {
 function keyEventHandler() {
   if (document.all) {
     if (event.keyCode == 13) {
-      var child = document.all.item("_next_page_", 0);
+      var child = document.all.item("doc_next_page_", 0);
       if (child != null) {
         location.href = child.href;
       }
     } else if (event.keyCode == 39) {
-      var child = document.all.item("_next_page_", 0);
+      var child = document.all.item("doc_next_page_", 0);
       if (child != null) {
         location.href = child.href;
       }
     } else if (event.keyCode = 37) {
-      var child = document.all.item("_prev_page_", 0);
+      var child = document.all.item("doc_prev_page_", 0);
       if (child != null) {
         location.href = child.href;
       }
@@ -651,56 +689,54 @@ function setOHPHandler() {
 <body>
 <div style="text-align:right"><a href="http://www.XMLSmartDoc.org" target="_top"><span style="color:#4F5952;background:#EE8362;font-family:sans-serif;font-size:xx-small;text-decoration:none">Powered by </span><span style="color:#058258;background:#EE8362;font-family:fantasy, sans-serif;font-size:x-small;text-decoration:none">SmartDoc</span></a></div>
 
-<h1 class="title">X-TDL仕様書(下書き)<br><small>v0.2.2</small></h1>
+<h1 class="title">X-TDL仕様書<br><span class="subtitle">v1.0</span></h1>
 
-<div class=date>2005-12-26</div>
-<div class=author>庄司成臣</div>
-<div class=org>知能メディア工学研究室</div>
-<div class=email><a href="mailto:shoji@c.oka-pu.ac.jp" onMouseOver="hilightHyperlink(this)" onMouseOut="normal(this)">shoji@c.oka-pu.ac.jp</a></div>
+<div class="date">最終更新日：2007-10-29</div>
+<div class="org">知能メディア工学研究室　教育グループ</div>
 
-<h1 class="chapter" id="doc1_22">この文書について</h1>
+<h1 class="chapter" id="doc1_16">この文書について</h1>
 
 
-<h2 id="doc1_24">概要</h2>
+<h2 id="doc1_18">概要</h2>
 
 <p class="first">教材記述言語X-TDL(XHTML based Teaching material Description Language)の仕様書の草案です。</p>
 
-<h2 id="doc1_27">この文書の目的</h2>
+<h2 id="doc1_21">この文書の目的</h2>
 
-<p class="first">X-TDLの記述を定めることです。この文書に書かれているものがX-TDLの正式な記述とします。X-TDLで教材を記述する場合や、X-TDLの処理系を作成する場合はこの文書に従ってください。なお、今後研究を進めるに従って、この文書の内容は常に変化する恐れがあります。</p>
+<p class="first">X-TDLの記述を定めることです。この文書に書かれているものがX-TDLの正式な記述とします。X-TDLで教材を記述する場合や、X-TDLの処理系を作成する場合はこの文書に従ってください。なお、今後研究を進めるに従って、この文書の内容は変化する恐れがあります。</p>
 
-<h1 class="chapter" id="doc1_32">要素の解説</h1>
-
-
-<h2 id="doc1_35">ルート要素</h2>
+<h1 class="chapter" id="doc1_26">要素の解説</h1>
 
 
-<h3 id="doc1_37">xtdl要素</h3>
+<h2 id="doc1_29">ルート要素</h2>
+
+
+<h3 id="doc1_31">xtdl要素</h3>
 
 <p class="first">ルート要素です。</p>
 
-<h4 id="doc1_39">属性</h4>
+<h4 id="doc1_33">属性</h4>
 
 
 <ul>
 <li> 無し</ul>
 
 
-<h4 id="doc1_48">子要素</h4>
+<h4 id="doc1_42">子要素</h4>
 
 
 <ul>
 <li> section</ul>
 
 
-<h2 id="doc1_61">構造を表す要素</h2>
+<h2 id="doc1_55">構造を表す要素</h2>
 
 
-<h3 id="doc1_63">section要素</h3>
+<h3 id="doc1_57">section要素</h3>
 
 <p class="first">章や節を表す要素です。</p>
 
-<h4 id="doc1_65">属性</h4>
+<h4 id="doc1_59">属性</h4>
 
 
 <ul>
@@ -708,7 +744,7 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_77">子要素</h4>
+<h4 id="doc1_71">子要素</h4>
 
 
 <ul>
@@ -726,11 +762,11 @@ function setOHPHandler() {
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_120">example要素</h3>
+<h3 id="doc1_114">example要素</h3>
 
 <p class="first">例を表す要素です。</p>
 
-<h4 id="doc1_122">属性</h4>
+<h4 id="doc1_116">属性</h4>
 
 
 <ul>
@@ -738,18 +774,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_134">子要素</h4>
+<h4 id="doc1_128">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_144">definition要素</h3>
+<h3 id="doc1_138">definition要素</h3>
 
 <p class="first">定義を表す要素です。</p>
 
-<h4 id="doc1_146">属性</h4>
+<h4 id="doc1_140">属性</h4>
 
 
 <ul>
@@ -757,18 +793,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_158">子要素</h4>
+<h4 id="doc1_152">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_167">explanation要素</h3>
+<h3 id="doc1_161">explanation要素</h3>
 
 <p class="first">説明を表す要素です。</p>
 
-<h4 id="doc1_169">属性</h4>
+<h4 id="doc1_163">属性</h4>
 
 
 <ul>
@@ -776,18 +812,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_181">子要素</h4>
+<h4 id="doc1_175">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_190">examination要素</h3>
+<h3 id="doc1_184">examination要素</h3>
 
-<p class="first">試験を表す要素です。</p>
+<p class="first">テストを表す要素です。テスト機構内部の問題DBに対して，出題する問題の問合せを記述します。</p>
 
-<h4 id="doc1_192">属性</h4>
+<h4 id="doc1_186">属性</h4>
 
 
 <ul>
@@ -795,18 +831,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_204">子要素</h4>
+<h4 id="doc1_198">子要素</h4>
 
 
 <ul>
-<li> XHTMLの要素</ul>
+<li> selection_ordering</ul>
 
 
-<h3 id="doc1_213">exercise要素</h3>
+<h3 id="doc1_207">exercise要素</h3>
 
 <p class="first">演習問題を表す要素です。</p>
 
-<h4 id="doc1_215">属性</h4>
+<h4 id="doc1_209">属性</h4>
 
 
 <ul>
@@ -814,18 +850,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_227">子要素</h4>
+<h4 id="doc1_221">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_236">illustration要素</h3>
+<h3 id="doc1_230">illustration要素</h3>
 
 <p class="first">図を表す要素です。</p>
 
-<h4 id="doc1_238">属性</h4>
+<h4 id="doc1_232">属性</h4>
 
 
 <ul>
@@ -833,18 +869,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_250">子要素</h4>
+<h4 id="doc1_244">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_259">program要素</h3>
+<h3 id="doc1_253">program要素</h3>
 
 <p class="first">ソースコードを挿入するための要素です。</p>
 
-<h4 id="doc1_261">属性</h4>
+<h4 id="doc1_255">属性</h4>
 
 
 <ul>
@@ -852,18 +888,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_273">子要素</h4>
+<h4 id="doc1_267">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_282">algorithm要素</h3>
+<h3 id="doc1_276">algorithm要素</h3>
 
 <p class="first">アルゴリズムを記述するための要素です。</p>
 
-<h4 id="doc1_284">属性</h4>
+<h4 id="doc1_278">属性</h4>
 
 
 <ul>
@@ -871,18 +907,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_296">子要素</h4>
+<h4 id="doc1_290">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_305">proof要素</h3>
+<h3 id="doc1_299">proof要素</h3>
 
 <p class="first">証明を記述するための要素です。</p>
 
-<h4 id="doc1_307">属性</h4>
+<h4 id="doc1_301">属性</h4>
 
 
 <ul>
@@ -890,18 +926,18 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_319">子要素</h4>
+<h4 id="doc1_313">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h3 id="doc1_328">simulation要素</h3>
+<h3 id="doc1_322">simulation要素</h3>
 
 <p class="first">シミュレーションを記述するための要素です。</p>
 
-<h4 id="doc1_330">属性</h4>
+<h4 id="doc1_324">属性</h4>
 
 
 <ul>
@@ -909,162 +945,156 @@ function setOHPHandler() {
 <li> id :シーケンシングに用いる識別子</ul>
 
 
-<h4 id="doc1_342">子要素</h4>
+<h4 id="doc1_336">子要素</h4>
 
 
 <ul>
 <li> XHTMLの要素</ul>
 
 
-<h1 class="chapter" id="doc1_356">シーケンシング</h1>
-
-<p class="first">X-TDLのシーケンシングはECAルールで記述する。</p>
-
-<h2 id="doc1_358">ルールの概要</h2>
+<h2 id="doc1_348">出題する問題の問合せを記述する要素</h2>
 
 
-<h3 id="doc1_360">イベント</h3>
+<h3 id="doc1_350">selection_ordering要素</h3>
+
+<p class="first">テストにおいて，出題する問題の問合せを記述するための要素です。</p>
+
+<h4 id="doc1_352">属性</h4>
 
 
-<dl>
-<dt>
-次へ進む
-<dd>
-学習者からの「次へ進む」という要求があったとき
-<dt>
-目次から選ぶ
-<dd>
-目次インタフェースから何かを選んだとき
-<dt>
-難易度変更の要求
-<dd>
-学習者からの難易度変更の要求</dl>
+<ul>
+<li> id :問題群の識別子
+<li> mark :グループへの配点</ul>
 
 
-<h3 id="doc1_385">コンディション</h3>
+<h4 id="doc1_364">子要素</h4>
 
 
-<dl>
-<dt>
-現在見ているノード
-<dd>
-現在見ているノード、「次へ移動」イベントで使用。
-<dt>
-移動先
-<dd>
-移動先、「入るとき」イベントで使用。
-<dt>
-テスト結果
-<dd>
-テストの結果
-<dt>
-学習者状態
-<dd>
-学習者の状態、未定</dl>
+<ul>
+<li> selection_id
+<li> selection_type
+<li> selection_number
+<li> selection_point
+<li> ordering</ul>
 
 
-<h3 id="doc1_416">アクション</h3>
+<h3 id="doc1_386">selection_id要素</h3>
+
+<p class="first">問題候補の指定のための要素。値として問題候補の識別子、または｢random｣を与える。</p>
+
+<h4 id="doc1_388">属性</h4>
 
 
-<dl>
-<dt>
-移動
-<dd>
-あるノードに移動する。移動先のノードを指定する。
-<dt>
-ブロック
-<dd>
-移動のキャンセル
-<dt>
-学習者状態の変更
-<dd>
-学習者状態を変更する
-<dt>
-チアリングメッセージを出す
-<dd>
-「よくできました」等のメッセージを出す。</dl>
+<ul>
+<li> 無し</ul>
 
 
-<h2 id="doc1_447">ルールの記述</h2>
-
-<p class="first">Prologにより記述する。</p>
-
-<h1 class="chapter" id="doc1_452">スキーマ</h1>
+<h4 id="doc1_397">子要素</h4>
 
 
-<div id="doc1_454" class="caption">X-TDLのスキーマ</div>
-<pre class="program" style="margin-top:0">
-start = xtdlElement
-xtdlElement = element xtdl { sectionElement+ }
-sectionElement =
-  element section {
-    attribute id { ID.datatype }?,
-    attribute title { text }?,
-    (sectionElement*
-     &amp; exampleElement*
-     &amp; definitionElement*
-     &amp; explanationElement*
-     &amp; examinationElement*
-     &amp; illustrationElement*
-     &amp; programElement*
-     &amp; algorithmElement*
-     &amp; proofElement*
-     &amp; simulationElement*)
-  }
-exampleElement = element example { elementBody }
-definitionElement = element definition { elementBody }
-explanationElement = element explanation { elementBody }
-examinationElement = element examination { elementBody }
-illustrationElement = element illustration { elementBody }
-programElement = element program { elementBody }
-algorithmElement = element algorithm { elementBody }
-proofElement = element proof { elementBody }
-simulationElement = element simulation { elementBody }
-elementBody = Common.attrib, Block.model
-include &quot;datatypes.rng.rnc&quot;
-include &quot;attribs.rng.rnc&quot;
-include &quot;text.rng.rnc&quot;
-include &quot;list.rng.rnc&quot;
-include &quot;basic-table.rng.rnc&quot;
-include &quot;image.rng.rnc&quot;
-include &quot;param.rng.rnc&quot;
-include &quot;object.rng.rnc&quot;
-include &quot;link.rng.rnc&quot;
-include &quot;base.rng.rnc&quot;
-</pre>
+<ul>
+<li> 無し</ul>
 
 
-<h1 class="chapter" id="doc1_457">記述例</h1>
+<h4 id="doc1_406">要素値</h4>
 
 
-<div id="doc1_458" class="caption">X-TDLの記述例</div>
-<pre class="program" style="margin-top:0">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;Shift_JIS&quot; ?&gt;
-&lt;!-- 
-X-TDL のサンプル
-作成日:2005/07/21
-最終更新日:2005/12/18
-作:庄司成臣
-v0.1
---&gt;
+<ul>
+<li> 問題候補の識別子(複数指定の場合はカンマで区切る)
+<li> random</ul>
 
-&lt;xtdl&gt;
-  &lt;section title=&quot;1章&quot; id=&quot;section1&quot;&gt;
-    &lt;example title=&quot;例&quot; id=&quot;example1&quot;&gt;
-      &lt;img src=&quot;http://www.yahoo.co.jp/&quot; /&gt;
-	&lt;/example&gt;
-    &lt;section title=&quot;1.1節&quot; id=&quot;section1.1&quot;&gt;
-      &lt;example title=&quot;例1.1&quot; id=&quot;expample1.1&quot;&gt;
-	&lt;ul&gt;	
-	  &lt;li&gt;リスト&lt;/li&gt;
-	  &lt;li&gt;リスト&lt;/li&gt;
-	&lt;/ul&gt;
-      &lt;/example&gt;
-    &lt;/section&gt;
-    &lt;section title=&quot;1.2節&quot; id=&quot;section1.2&quot;/&gt;
-  &lt;/section&gt;
-&lt;/xtdl&gt;
-</pre>
+
+<h3 id="doc1_419">selection_type要素</h3>
+
+<p class="first">問題候補の形式を指定するための要素です。</p>
+
+<h4 id="doc1_421">属性</h4>
+
+
+<ul>
+<li> 無し</ul>
+
+
+<h4 id="doc1_430">子要素</h4>
+
+
+<ul>
+<li> 無し</ul>
+
+
+<h4 id="doc1_439">要素値</h4>
+
+
+<ul>
+<li> 問題候補の形式ですか？</ul>
+
+
+<h3 id="doc1_449">selection_number要素</h3>
+
+<p class="first">出題する問題数を指定する。</p>
+
+<h4 id="doc1_451">属性</h4>
+
+
+<ul>
+<li> 無し</ul>
+
+
+<h4 id="doc1_460">子要素</h4>
+
+
+<ul>
+<li> 無し</ul>
+
+
+<h4 id="doc1_469">要素値</h4>
+
+
+<ul>
+<li> 出題問題数</ul>
+
+
+<h3 id="doc1_479">selection_point要素</h3>
+
+<p class="first">問題候補の持つ点数を指定する。指定した点数以上，以下の指定を行う。</p>
+
+<h4 id="doc1_481">属性</h4>
+
+
+<ul>
+<li> type　:｢over｣or｢under｣のいずれか</ul>
+
+
+<h4 id="doc1_490">子要素</h4>
+
+
+<ul>
+<li> 無し</ul>
+
+
+<h4 id="doc1_499">要素値</h4>
+
+
+<ul>
+<li> 点数</ul>
+
+
+<h3 id="doc1_509">ordering要素</h3>
+
+<p class="first">出題の順序を指定する要素。順番，またはランダムのいずれかを指定する。</p>
+
+<h4 id="doc1_511">属性</h4>
+
+
+<ul>
+<li> type :｢sequential｣or｢random｣のいずれか</ul>
+
+
+<h4 id="doc1_520">子要素</h4>
+
+
+<ul>
+<li> 無し</ul>
 
 </body>
 </html>
