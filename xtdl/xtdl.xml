@@ -346,7 +346,6 @@ X-TDLで教材を記述する場合や、X-TDLの処理系を作成する場合はこの文書に従ってくださ
 </chapter>
 <!-- 要素の解説 ここまで -->
 
-
 <!--
 <chapter title="スキーマ">
 <program src="./schema/xtdl-0_6.rng" title="X-TDLのスキーマ"/>
